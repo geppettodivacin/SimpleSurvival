@@ -110,6 +110,7 @@ class GameEvents implements Listener {
                 System.out.println("player check passed");
             }
 
+			System.out.println(openedChests);
             if (!openedChests.contains(holder)) {
                 for (Map.Entry<Material, Double> lootEntry : currentGame.getLoot().entrySet()) {
                     System.out.println("Checking loot entry " + lootEntry.toString());
