@@ -15,9 +15,15 @@ public class GameTemplate {
     private int minPlayers=1;
     private int maxPlayers;
 
+	private boolean preseed;
+
     public boolean isReady() {
         return competitors.size()>=minPlayers;
     }
+
+	public boolean isPreseeded() {
+		return preseed;
+	}
 
     public boolean isFull() {
         return competitors.size()>=maxPlayers;
@@ -53,6 +59,8 @@ public class GameTemplate {
         this.displayName = displayName;
         this.minPlayers = plugin.getConfig().getInt("worlds." + sourceWorld + ".minPlayers");
         this.maxPlayers = plugin.getConfig().getInt("worlds." + sourceWorld + ".maxPlayers");
+
+		this.preseed = plugin.getConfig().getBoolean("worlds." + sourceWorld + ".preseed", false);
 
         List<String> spawns = plugin.getConfig().getStringList("worlds." + sourceWorld + ".spawns");
         this.spawns = new ArrayList<>();
